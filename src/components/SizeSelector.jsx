@@ -11,24 +11,33 @@ export const SizeSelector = ({ sizes, onSelect }) => {
 	return (
 		<div>
 			{sizes.map((size) => (
-				<ElementSelector size={size} />
+				<Size size={size} />
 			))}
 		</div>
 	)
 }
 
-const ElementSelector = ({ size }) => {
+const Size = ({ product }) => {
 	return (
 		<div onClick={onSelect(size)} key={size.key}>
-			{size.label}
+			<span>{size.label}</span>
 			{size.rightLabel && <span>{size.rightLabel}</span>}
 		</div>
 	)
 }
 
 /**
+ *  const sizes = color.sizes.map((size) => ({
+ *      key: size.id,
+ *      label: size.name,
+ *      lastUnitsLabel: LastUnits.hasLastUnits(size.stock) ? "Últimas unidades" : null,
+ *      disabled: size.stock === 0,
+ * }))
  *
- * [{label, rightLabel, key, value, stock, }]
+ * [{label, rightLabel, key }]
+ * <SizeSelector displayed onSelect={(elemento) => {...}} sizes={color.sizes} />
+ *
+ * [{label, rightLabel, key }]
  * <SizeSelector displayed onSelect={(elemento) => {...}} sizes={[
  *  {label: "32", rightLabel: "últimas unidades"}
  *  {label: "33"}
@@ -36,7 +45,7 @@ const ElementSelector = ({ size }) => {
  * ]} />
  *
  * <SizeSelector displayed onSelect={(elemento) => {...}} ..>
- *      <p>40 </p>
+ *      <p onClick=>40 </p>
  *      <p>42</p>
  *      <p>43</p>
  *      <img src={} alt=""/>
