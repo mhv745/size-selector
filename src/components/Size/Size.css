@@ -1,0 +1,21 @@
+.size {
+	position: relative;
+	display: block;
+	outline: none;
+	cursor: pointer;
+}
+
+.size button {
+	display: flex;
+	width: 100%;
+	height: 2rem;
+	background-color: white;
+	border: 0px;
+	border-radius: 0px;
+	padding: 8px;
+	text-align: left;
+}
+
+.size button .label {
+	flex: 1;
+}

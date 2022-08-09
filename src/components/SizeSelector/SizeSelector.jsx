@@ -1,30 +1,30 @@
+import { useState } from 'react'
+import Selector from '../Selector/Selector'
+
 /**
  * @typedef {Object} SizeSelectorProps
  * @property {Array} sizes
- * @property {Function} onSelect
- * @property {string} defaultSize
- * @property {boolean} displayed
- *
- *
+ * @property {string} defaultSize  ??????????????
+ * @property {boolean} displayed   ??????????????
  */
-export const SizeSelector = ({ sizes, onSelect }) => {
+const SizeSelector = ({ sizes, onSelect }) => {
+	const [selectedSize, setSelectedSize] = useState()
+	const selectSize = (size) => {
+		console.log('selected size: ', size)
+		setSelectedSize({ ...size })
+		if (onSelect) {
+			onSelect(size)
+		}
+	}
+
 	return (
-		<div>
-			{sizes.map((size) => (
-				<Size size={size} />
-			))}
+		<div className='size-selector'>
+			<Selector sizes={sizes.slice(1, sizes.length)} selectedSize={selectedSize} onSelect={selectSize} />
 		</div>
 	)
 }
 
-const Size = ({ product }) => {
-	return (
-		<div onClick={onSelect(size)} key={size.key}>
-			<span>{size.label}</span>
-			{size.rightLabel && <span>{size.rightLabel}</span>}
-		</div>
-	)
-}
+export default SizeSelector
 
 /**
  *  const sizes = color.sizes.map((size) => ({
