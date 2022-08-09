@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react'
+import OnlySize from './OnlySize/OnlySize'
 import './Selector.css'
 import Size from './Size/Size'
 
@@ -29,7 +30,7 @@ const Selector = ({ sizes, selectedSize, onSelect }) => {
 					<Size canHover={false} size={selectedSize} onSelect={() => setExpanded(true)} icon='V' />
 				)
 			) : (
-				<Size canHover={false} isOnlySize size={sizes[0]} onSelect={onSelect} />
+				<OnlySize size={sizes[0]} />
 			)}
 		</div>
 	)
