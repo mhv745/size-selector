@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import Selector from '../Selector/Selector'
+import Selector from './Selector/Selector'
 
 /**
  * @typedef {Object} SizeSelectorProps
@@ -10,7 +10,6 @@ import Selector from '../Selector/Selector'
 const SizeSelector = ({ sizes, onSelect }) => {
 	const [selectedSize, setSelectedSize] = useState()
 	const selectSize = (size) => {
-		console.log('selected size: ', size)
 		setSelectedSize({ ...size })
 		if (onSelect) {
 			onSelect(size)

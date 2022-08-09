@@ -19,7 +19,15 @@ function App() {
 			<div style={{ display: 'grid', gridTemplateColumns: 'auto 350px', minHeight: '100vh' }}>
 				<main style={{ background: '#ccc' }}></main>
 				<aside style={{ padding: '3rem 1rem' }}>
+					<h1>Multi talla</h1>
 					<SizeSelector sizes={sizes} />
+					<h1>Talla única</h1>
+					<SizeSelector
+						sizes={[
+							{ label: 'Selecciona tu talla', id: '0' },
+							{ label: 'Talla única', id: '1' },
+						]}
+					/>
 				</aside>
 			</div>
 		</div>
