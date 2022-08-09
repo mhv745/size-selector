@@ -9,3 +9,24 @@
 	max-height: 9rem;
 	overflow-y: auto;
 }
+
+/* width */
+.selector::-webkit-scrollbar {
+	width: 3px;
+}
+
+/* Track */
+.selector::-webkit-scrollbar-track {
+	background: white;
+}
+
+/* Handle */
+.selector::-webkit-scrollbar-thumb {
+	background: #f3f3f3;
+	border-radius: 2px;
+}
+
+/* Handle on hover */
+.selector::-webkit-scrollbar-thumb:hover {
+	background: #f3f3f3;
+}

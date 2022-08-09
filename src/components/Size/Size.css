@@ -12,8 +12,9 @@
 	padding: 8px;
 	text-align: left;
 }
-.size:hover,
-.size:focus {
+
+.can-hover:hover,
+.can-hover:focus {
 	background-color: #f3f3f3;
 }
 

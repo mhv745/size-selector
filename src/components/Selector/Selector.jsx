@@ -17,12 +17,13 @@ const Selector = ({ sizes, selectedSize, onSelect }) => {
 	useEffect(() => {
 		setExpanded(!selectedSize)
 	}, [selectedSize])
+
 	return (
 		<div className={`selector${expanded ? ' expanded' : ''}`}>
 			{expanded ? (
-				sizes.map((size) => <Size size={size} key={size.id} onSelect={onSelect} icon={size.icon} />)
+				sizes.map((size) => <Size canHover size={size} key={size.id} onSelect={onSelect} icon={size.icon} />)
 			) : (
-				<Size size={selectedSize} onSelect={() => setExpanded(true)} icon='V' />
+				<Size canHover={false} size={selectedSize} onSelect={() => setExpanded(true)} icon='V' />
 			)}
 		</div>
 	)
