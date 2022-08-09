@@ -22,10 +22,6 @@ const Selector = ({ sizes, selectedSize, onSelect }) => {
 			{expanded ? (
 				sizes.map((size) => <Size size={size} key={size.id} onSelect={onSelect} icon={size.icon} />)
 			) : (
-				// <button onClick={() => setExpanded(true)}>
-				// 	<span className='label'>{selectedSize.label}</span>
-				// 	<span>V</span>
-				// </button>
 				<Size size={selectedSize} onSelect={() => setExpanded(true)} icon='V' />
 			)}
 		</div>
