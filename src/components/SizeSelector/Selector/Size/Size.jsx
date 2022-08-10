@@ -3,6 +3,7 @@ import './Size.css'
 const Size = ({ size, onSelect, icon, canHover }) => {
 	return (
 		<button
+			aria-labelledby={`size-${size.id}`}
 			className={`size${canHover ? ' can-hover' : ''}`}
 			onClick={() => {
 				if (onSelect) {
@@ -10,7 +11,9 @@ const Size = ({ size, onSelect, icon, canHover }) => {
 				}
 			}}
 		>
-			<span className='label'>{size.label}</span>
+			<span id={`size-${size.id}`} className='label'>
+				{size.label}
+			</span>
 			{icon && <span className='icon'>{icon}</span>}
 		</button>
 	)
