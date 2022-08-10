@@ -24,10 +24,23 @@ const Selector = ({ sizes, selectedSize, onSelect }) => {
 			{sizes.length > 1 ? (
 				expanded ? (
 					sizes.map((size) => (
-						<Size canHover size={size} key={size.id} onSelect={onSelect} icon={size.icon} />
+						<Size
+							canHover
+							size={size}
+							key={size.id}
+							onSelect={onSelect}
+							icon={size.icon}
+							selected={false}
+						/>
 					))
 				) : (
-					<Size canHover={false} size={selectedSize} onSelect={() => setExpanded(true)} icon='V' />
+					<Size
+						canHover={false}
+						size={selectedSize}
+						onSelect={() => setExpanded(true)}
+						icon='V'
+						selected={true}
+					/>
 				)
 			) : (
 				<OnlySize size={sizes[0]} />
