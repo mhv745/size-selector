@@ -1,6 +1,9 @@
 import './Size.css'
 
 const Size = ({ size, onSelect, icon, canHover, selected }) => {
+	/**
+	 * TO DO: jsdoc
+	 */
 	const handleSelect = () => {
 		if (onSelect) {
 			onSelect(size)
