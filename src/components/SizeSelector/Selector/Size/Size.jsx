@@ -9,18 +9,25 @@ const Size = ({ size, onSelect, icon, canHover, selected }) => {
 			onSelect(size)
 		}
 	}
+	const accessibility = {
+		wraper: {
+			role: !selected ? 'listitem' : undefined,
+		},
+		button: {
+			'aria-labelledby': !selected ? `size-${size.id}` : undefined,
+			'aria-label': selected ? `talla ${size.label} seleccionada. Click para seleccionar más.` : undefined,
+		},
+	}
 
 	return (
-		<button
-			aria-labelledby={`size-${size.id}`}
-			className={`size${canHover ? ' can-hover' : ''}`}
-			onClick={handleSelect}
-		>
-			<span id={`size-${size.id}`} className='label' aria-selected={selected}>
-				{size.label}
-			</span>
-			{icon && <span className='icon'>{icon}</span>}
-		</button>
+		<div {...accessibility.wraper}>
+			<button {...accessibility.button} className={`size${canHover ? ' can-hover' : ''}`} onClick={handleSelect}>
+				<span id={`size-${size.id}`} className='label' aria-selected={selected}>
+					{size.label}
+				</span>
+				{icon && <span className='icon'>{icon}</span>}
+			</button>
+		</div>
 	)
 }
 

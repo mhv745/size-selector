@@ -6,10 +6,6 @@ import Size from './Size/Size'
  * @typedef {Object} SizeSelectorProps
  * @property {Array} sizes
  * @property {Function} onSelect
- * @property {string} defaultSize
- * @property {boolean} displayed
- *
- *
  */
 const Selector = ({ sizes, selectedSize, onSelect }) => {
 	const [expanded, setExpanded] = useState(true)
@@ -18,8 +14,15 @@ const Selector = ({ sizes, selectedSize, onSelect }) => {
 		setExpanded(!selectedSize)
 	}, [selectedSize])
 
+	const accessibility = {
+		wrapper: {
+			'aria-label': expanded ? 'selecciona tu talla' : 'talla seleccionada',
+			role: expanded ? 'list' : undefined,
+		},
+	}
+
 	return (
-		<div className={`selector${expanded ? ' expanded' : ''}`}>
+		<div className={`selector${expanded ? ' expanded' : ''}`} {...accessibility.wrapper}>
 			{expanded ? (
 				sizes.map((size) => (
 					<Size canHover size={size} key={size.id} onSelect={onSelect} icon={size.icon} selected={false} />
