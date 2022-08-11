@@ -1,12 +1,9 @@
 .selector {
-	background-color: white;
-	border-top: 1px solid #d7d7d8;
-	border-bottom: 1px solid #d7d7d8;
 	overflow: hidden;
 }
 
 .expanded {
-	max-height: 9rem;
+	max-height: 11rem;
 	overflow-y: auto;
 }
 

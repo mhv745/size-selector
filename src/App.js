@@ -13,21 +13,19 @@ const sizes = [
 	{ label: '4XL', id: '9' },
 ]
 
+const oneSize = [{ id: '99', value: 'Talla única', label: 'Talla única', available: true, stock: 239 }]
+
 function App() {
 	return (
 		<div className='App'>
 			<div style={{ display: 'grid', gridTemplateColumns: 'auto 350px', minHeight: '100vh' }}>
 				<main style={{ background: '#ccc' }}></main>
 				<aside style={{ padding: '3rem 1rem' }}>
+					<input type='text'></input>
 					<h1>Multi talla</h1>
 					<SizeSelector sizes={sizes} />
 					<h1>Talla única</h1>
-					<SizeSelector
-						sizes={[
-							{ label: 'Selecciona tu talla', id: '0' },
-							{ label: 'Talla única', id: '1' },
-						]}
-					/>
+					<SizeSelector sizes={oneSize} />
 				</aside>
 			</div>
 		</div>

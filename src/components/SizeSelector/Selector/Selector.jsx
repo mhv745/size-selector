@@ -1,5 +1,4 @@
 import { useEffect, useState } from 'react'
-import OnlySize from './OnlySize/OnlySize'
 import './Selector.css'
 import Size from './Size/Size'
 
@@ -21,29 +20,18 @@ const Selector = ({ sizes, selectedSize, onSelect }) => {
 
 	return (
 		<div className={`selector${expanded ? ' expanded' : ''}`}>
-			{sizes.length > 1 ? (
-				expanded ? (
-					sizes.map((size) => (
-						<Size
-							canHover
-							size={size}
-							key={size.id}
-							onSelect={onSelect}
-							icon={size.icon}
-							selected={false}
-						/>
-					))
-				) : (
-					<Size
-						canHover={false}
-						size={selectedSize}
-						onSelect={() => setExpanded(true)}
-						icon='V'
-						selected={true}
-					/>
-				)
+			{expanded ? (
+				sizes.map((size) => (
+					<Size canHover size={size} key={size.id} onSelect={onSelect} icon={size.icon} selected={false} />
+				))
 			) : (
-				<OnlySize size={sizes[0]} />
+				<Size
+					canHover={false}
+					size={selectedSize}
+					onSelect={() => setExpanded(true)}
+					icon='V'
+					selected={true}
+				/>
 			)}
 		</div>
 	)
